@@ -1,0 +1,41 @@
+<div class="reply-comment">
+  <p>{{comment.user.name}} {{comment.user.surName}} : {{ comment.text }}</p>
+  
+  
+  <div *ngIf="comment.replyComment" class="reply-comment ml-3">
+    <app-reply-component [comment]="comment.replyComment"></app-reply-component>
+  </div>
+
+  
+  <div *ngIf="!comment.replyComment">
+    <button (click)="openReplyModal(comment.id)" class="btn btn-primary">Odgovori</button>
+  </div>
+</div>
+
+
+
+
+<div *ngIf="isModalOpen" class="modal-overlay">
+  <div class="card shadow-sm" style="max-width: 500px; margin: 20px auto; border-radius: 15px;">
+    <div class="card-header bg-primary text-white" style="border-radius: 15px 15px 0 0;">
+      <h5 class="card-title mb-0">Unesite Vaš tekst za komentar ID {{selectedCommentId}}</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Molimo vas da unesete svoj komentar u polje ispod.</p>
+      <form [formGroup]="form">
+        <div class="mb-3">
+          <label for="inputText" class="form-label">Vaš tekst</label>
+          <input type="text" class="form-control" id="inputText" formControlName="commentText" placeholder="Unesite tekst ovde">
+          <div *ngIf="form.get('commentText')?.invalid && (form.get('commentText')?.touched || form.get('commentText')?.dirty)" class="text-danger">
+            Mora imati barem 3 karaktera.
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer text-end" style="border-radius: 0 0 15px 15px;">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="sendComment()">Pošalji</button>
+      <button type="button" class="btn btn-secondary" (click)="closeReplyModal()">Zatvori</button>
+    </div>
+  </div>
+</div>
+

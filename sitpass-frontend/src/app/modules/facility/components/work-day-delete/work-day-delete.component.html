@@ -1,0 +1,13 @@
+<div class="container mt-5">
+    <h2>Delete WorkDay by Date</h2>
+    <form id="deleteWorkDayForm" class="w-100" [formGroup]="form">
+        <div class="form-group mb-3">
+            <label for="validFrom">Select Date:</label>
+            <input type="date" class="form-control" id="validFrom" formControlName="date"  required>
+        </div>
+        <div class="form-group mb-3">
+            <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid" (click)="onClick()">Confirm</button>
+        </div>
+    </form>
+</div>
+

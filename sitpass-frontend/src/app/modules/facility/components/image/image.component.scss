@@ -1,0 +1,31 @@
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ograničava slike unutar prikazne oblasti */
+  width: 100%;
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: space-between; /* Raspoređuje slike sa razmakom između */
+}
+
+.carousel-image {
+  max-width: 33%; /* Osigurava da svaka slika zauzima trećinu širine */
+  max-height: 200px; /* Prilagodite visinu po potrebi */
+  object-fit: cover; /* Održava proporcije slike */
+  margin: 0 5px; /* Dodaje razmak između slika */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+
+
+  

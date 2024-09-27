@@ -1,0 +1,28 @@
+<div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="d-flex justify-content-center">
+        <img *ngIf="currentIndex < images.length" [src]="images[currentIndex].src" class="carousel-image" [alt]="images[currentIndex].alt">
+        <img *ngIf="currentIndex + 1 < images.length" [src]="images[currentIndex + 1]?.src" class="carousel-image" [alt]="images[currentIndex + 1]?.alt">
+        <img *ngIf="currentIndex + 2 < images.length" [src]="images[currentIndex + 2]?.src" class="carousel-image" [alt]="images[currentIndex + 2]?.alt">
+      </div>
+    </div>
+  </div>
+
+  <!-- Strelica za levo -->
+  <button class="carousel-control-prev" type="button" (click)="prevSlide()">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <!-- Strelica za desno -->
+  <button class="carousel-control-next" type="button" (click)="nextSlide()">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+
+  

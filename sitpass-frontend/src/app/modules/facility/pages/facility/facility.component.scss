@@ -1,0 +1,70 @@
+/* Dodavanje razmaka između kolona */
+.row {
+    margin-right: -15px; /* Smanjuje razmak između kolona */
+    margin-left: -15px; /* Smanjuje razmak između kolona */
+  }
+  
+  .facility-info {
+    padding-right: 15px; /* Dodaje razmak desno od facility-info */
+  }
+  
+  .work-day {
+    padding-left: 15px; /* Dodaje razmak levo od work-day */
+  }
+  
+  /* Ako želiš da `facility-info` bude veće od `work-day` */
+  .facility-info, .work-day {
+    box-sizing: border-box; /* Uključuje padding u ukupnu širinu */
+  }
+  /* component.css */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Sredi navbar u sredinu */
+  position: relative; /* Omogućava pozicioniranje dropdown menija u odnosu na kontejner */
+  padding: 0 10px; /* Dodaje padding sa leve i desne strane */
+}
+
+.app-navbar {
+  flex: 1; /* Pomaže da navbar zauzme raspoloživi prostor */
+}
+
+.dropdown-container {
+  position: absolute;
+  right: 10px; /* Odmak od desne granice */
+  top: 50%; /* Vertikalno poravnanje u sredinu */
+  transform: translateY(-50%); /* Vertikalno centriranje u odnosu na sredinu */
+}
+
+.dropdown {
+  position: relative;
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  min-width: 10rem; /* Širina dropdown menija */
+  margin-top: 0.5rem; /* Razmak između dugmeta i menija */
+}
+
+/* Prilagodite stilove za mobilne uređaje */
+@media (max-width: 991px) {
+  .navbar-container {
+    flex-direction: column; /* Složi elemente u kolonu na manjim ekranima */
+  }
+
+  .dropdown-container {
+    position: static; /* Postavlja dropdown meni ispod navbar-a na manjim ekranima */
+    margin-top: 1rem; /* Razmak između navbar-a i dropdown menija */
+    right: 0; /* Uklanja odmak od desne strane na manjim ekranima */
+    transform: none; /* Uklanja vertikalno pomeranje na manjim ekranima */
+  }
+}
+
+
+
+
+  
+ 
+  
+  
+  

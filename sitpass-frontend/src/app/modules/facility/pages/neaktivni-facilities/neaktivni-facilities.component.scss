@@ -1,0 +1,92 @@
+#totalRatingDecoration {
+    border: 1px solid rgb(232, 228, 228); 
+    padding: 2px; 
+    border-radius: 5px; 
+    background-color: orangered;
+    color: #fff; 
+    
+  }
+  
+  
+  
+ 
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 30px; 
+    justify-content: center; 
+    margin-top: 50px;
+    
+    
+  }
+
+  .card {
+    border: 0.1px solid #dddddd;
+    border-radius: 8px;
+    
+    
+  }
+  .container a {
+
+    border: 1px solid rgb(243, 235, 235);
+    border-radius: 8px;
+    margin: 45px;
+    
+    
+  }
+
+  .form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+   /* component.css */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Sredi navbar u sredinu */
+  position: relative; /* Omogućava pozicioniranje dropdown menija u odnosu na kontejner */
+  padding: 0 10px; /* Dodaje padding sa leve i desne strane */
+}
+
+.app-navbar {
+  flex: 1; /* Pomaže da navbar zauzme raspoloživi prostor */
+}
+
+.dropdown-container {
+  position: absolute;
+  right: 10px; /* Odmak od desne granice */
+  top: 50%; /* Vertikalno poravnanje u sredinu */
+  transform: translateY(-50%); /* Vertikalno centriranje u odnosu na sredinu */
+}
+
+.dropdown {
+  position: relative;
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  min-width: 10rem; /* Širina dropdown menija */
+  margin-top: 0.5rem; /* Razmak između dugmeta i menija */
+}
+
+/* Prilagodite stilove za mobilne uređaje */
+@media (max-width: 991px) {
+  .navbar-container {
+    flex-direction: column; /* Složi elemente u kolonu na manjim ekranima */
+  }
+
+  .dropdown-container {
+    position: static; /* Postavlja dropdown meni ispod navbar-a na manjim ekranima */
+    margin-top: 1rem; /* Razmak između navbar-a i dropdown menija */
+    right: 0; /* Uklanja odmak od desne strane na manjim ekranima */
+    transform: none; /* Uklanja vertikalno pomeranje na manjim ekranima */
+  }
+}
+.naslov{
+  text-align: center;
+  
+}
+  

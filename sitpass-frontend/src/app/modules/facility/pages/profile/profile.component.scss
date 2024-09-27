@@ -1,0 +1,152 @@
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fbc2eb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(197, 194, 251), rgb(7, 87, 225));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ededef, rgba(166, 193, 238, 1))
+  }
+
+   /* component.css */
+   .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Sredi navbar u sredinu */
+    position: relative; /* Omogućava pozicioniranje dropdown menija u odnosu na kontejner */
+    padding: 0 10px; /* Dodaje padding sa leve i desne strane */
+  }
+  
+  .app-navbar {
+    flex: 1; /* Pomaže da navbar zauzme raspoloživi prostor */
+  }
+  
+  .dropdown-container {
+    position: absolute;
+    right: 10px; /* Odmak od desne granice */
+    top: 50%; /* Vertikalno poravnanje u sredinu */
+    transform: translateY(-50%); /* Vertikalno centriranje u odnosu na sredinu */
+  }
+  
+  .dropdown {
+    position: relative;
+    margin-right: 10px;
+  }
+  
+  .dropdown-menu {
+    min-width: 10rem; /* Širina dropdown menija */
+    margin-top: 0.5rem; /* Razmak između dugmeta i menija */
+  }
+  
+  /* Prilagodite stilove za mobilne uređaje */
+  @media (max-width: 991px) {
+    .navbar-container {
+      flex-direction: column; /* Složi elemente u kolonu na manjim ekranima */
+    }
+  
+    .dropdown-container {
+      position: static; /* Postavlja dropdown meni ispod navbar-a na manjim ekranima */
+      margin-top: 1rem; /* Razmak između navbar-a i dropdown menija */
+      right: 0; /* Uklanja odmak od desne strane na manjim ekranima */
+      transform: none; /* Uklanja vertikalno pomeranje na manjim ekranima */
+    }
+  }
+
+  .average-rating {
+    background-color: #b22222;
+    padding: 4px;
+    border-radius: 3px;
+    color: white;
+    margin-right: 10px;
+    width: 50px;
+    text-align: center; 
+    
+    
+}
+.rating-details {
+  
+  margin-top: 5px;
+}
+
+
+
+.rating-value {
+  background-color: rgb(153, 78, 51);
+  padding: 4px;
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+}
+
+
+.rating-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 1em;
+  }
+
+  .rating-value {
+    display: inline-block;
+    background-color: orangered;
+    padding: 4px;
+    border-radius: 3px;
+    color: white; 
+    text-align: center;
+    
+    min-width: 20px; 
+    
+   
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .comment-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .reply-comment {
+    margin-left: 20px; /* Uvlačenje za odgovor */
+    font-size: 20px;
+    color: #01030a; 
+  }
+  
+  .rating-details {
+    margin-bottom: 15px;
+  }
+  
+  .rating-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+
+  .review-list {
+    width: 60%; 
+    margin: 0 auto; 
+}
+
+.comment-item {
+    background-color: white; /* Pozadinska boja kartice */
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin-bottom: 10px;
+}
+
+.listaVjezbi{
+  text-align: center;
+}
+

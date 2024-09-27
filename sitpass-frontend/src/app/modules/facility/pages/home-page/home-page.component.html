@@ -1,0 +1,125 @@
+
+<div class="navbar-container">
+  <app-navbar></app-navbar>
+  <div class="dropdown-container">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Opcije
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" (click)="logout()">Log out</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="hero-header-component" style="background-image: url('images/background_image.jpg');">
+  <div class="container">
+    <div class="content">
+      <h1 class="hero-title">Trenirajte</h1>
+      <p class="hero-text">u više od 100 objekata u BiH.</p>
+      <p class="hero-text">Jedna članarina je dovoljna za sve Vaše fitness aktivnosti!</p>
+      <span class="hero-price">Već od 59 KM</span>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+<div class="dropdown sortbutton">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+    Sortitaj po 
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item" (click)="navigateToCity()">Svom gradu</a></li>
+    <li><a class="dropdown-item" (click)="navigateToToday()">New facility</a></li>
+    <li><a class="dropdown-item" (click)="navigateToPopular()">Popular facility</a></li>
+  </ul>
+</div>
+
+<br>
+
+<div class="zaSveFacilityDaCentriras">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-3 mb-4" *ngFor="let f of facilities">
+        <div class="card h-100 text-center">
+          <img src="images/ter2.jpg" alt="Avatar" class="card-img-top">
+          <div class="card-body">
+            <h4 class="card-title">
+              <span id="totalRatingDecoration">{{ f.totalRating | number:'1.1-1' }}</span>
+              <b>{{f.name}}</b>
+            </h4>
+            <p class="card-text">{{f.address}}, {{f.city}}</p>
+          </div>
+          <div class="card-footer">
+            <a [routerLink]="['/facility/', f.id]">Prikaži facility</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="exploreMoreButton">
+  <button class="btn btn-danger" type="button" [routerLink]="['/facilitys']"> Explore more </button>
+</div>
+
+
+
+
+
+<div class="page-footer-component bg-light pt-4">
+  <div class="container-fluid">
+      <div class="row g-0">
+          
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 ciprip">
+              <h4 class="font-weight-bold text-dark">O kompaniji</h4>
+              <ul>
+                  <li>Sitpass je vodeći pružalac usluga u oblasti fitnesa, sa ciljem da omogući korisnicima pristup raznim teretanama i wellness centrima širom zemlje.</li>
+                  <li>Naša misija je da pomognemo ljudima da ostanu aktivni i zdravi pružajući im jednostavan i fleksibilan način za vežbanje.</li>
+              </ul>
+          </div>
+          
+           
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 ciprip">
+              <h4 class="font-weight-bold text-dark">Možda će Vas zanimati</h4>
+              <p>Otkrijte najnovije fitness trendove, preporuke za vežbanje, i savete za zdravlje i ishranu. Posetite naš blog za više informacija.</p>
+              <p>Preporučujemo vam da istražite različite vrste treninga i wellness opcija koje nudimo, kao i ekskluzivne ponude i promocije koje su dostupne našim korisnicima.</p>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0 ciprip">
+              <h4 class="font-weight-bold text-dark ">Kontakt</h4>
+              <ul>
+                  <li>Telefon: +381 11 123 456</li>
+                  <li>Email: info&#64;example.com</li>
+                  <li>Adresa: Ulica 12, Beograd, Srbija</li>
+              </ul>
+          </div>
+         
+      </div>
+  </div>
+</div>
+<br>
+<br>
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+  
+  

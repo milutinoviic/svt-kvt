@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<br>
+<div class="container mt-4">
+  <div *ngFor="let user of userList" class="card mb-3">
+    <div class="card-body d-flex align-items-center">
+      <div class="me-4 text-center">
+        <p><strong>Id:</strong> {{ user.id }}</p>
+      </div>
+      <div class="me-4 text-center">
+        <p><strong>Address:</strong> {{ user.email }}</p>
+      </div>
+      <div class="me-4 text-center">
+        <p><strong>Address:</strong> {{ user.address }}</p>
+      </div>
+      <div class="me-4 text-center">
+        <p><strong>Address:</strong> {{ user.city }}</p>
+      </div>
+      <div class="ms-auto d-flex align-items-center">
+        <button class="btn btn-success me-2"  (click)="onApprove(user)">Manager</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

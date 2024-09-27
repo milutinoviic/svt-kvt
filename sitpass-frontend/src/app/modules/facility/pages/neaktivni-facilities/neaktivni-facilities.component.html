@@ -1,0 +1,42 @@
+<div class="navbar-container">
+  <app-navbar></app-navbar>
+  <div class="dropdown-container">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Opcije
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <!-- <li *ngIf="roleNow ==='ADMIN'"><a class="dropdown-item" (click)="openFacilityModal()" >Dodaj facility</a></li>
+        <li *ngIf="roleNow ==='ADMIN'"><a class="dropdown-item" (click)="openAccountRequests()" >Pregledaj zahtjeve</a></li>
+        <li *ngIf="roleNow ==='ADMIN'"><a class="dropdown-item" (click)="openAddDiscipline()" >Dodaj disicplinu</a></li> -->
+        <li><a class="dropdown-item" [routerLink]="['/neaktivni-facilities']" >Neaktivni facilitys</a></li>
+
+        <li><a class="dropdown-item" (click)="logout()">Log out</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<br>
+
+<h1 class="naslov">Neaktivni facilitys</h1>
+
+<br>
+<div class="container">
+    <div class="row">
+      <div class="col-md-3 mb-4" *ngFor="let f of facilities">
+        <div class="card h-100">
+          <img src="images/ter2.jpg" alt="Avatar" class="card-img-top">
+          <div class="card-body">
+            <h4 class="card-title">
+              <span id="totalRatingDecoration">{{ f.totalRating | number:'1.1-1' }}</span>
+              <b>{{f.name}}</b>
+            </h4>
+            <p class="card-text">{{f.address}}, {{f.city}}</p>
+          </div>
+          <div class="card-footer">
+            <a [routerLink]="['/facility/', f.id]">Prikaži facility</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

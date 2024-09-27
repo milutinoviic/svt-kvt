@@ -1,0 +1,159 @@
+.hero-header-component {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    height: 55vh; 
+    display: flex;
+    align-items: center; 
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: 50px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 50%; 
+    margin-left: 0px; 
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-price {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.button-holder {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.buy-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.buy-button i {
+    margin-left: 0.5rem;
+}
+
+.secondary-button {
+    background-color: #fff;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.page-footer-component{
+    margin-top: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+   /* component.css */
+   .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Sredi navbar u sredinu */
+    position: relative; /* Omogućava pozicioniranje dropdown menija u odnosu na kontejner */
+    padding: 0 10px; /* Dodaje padding sa leve i desne strane */
+  }
+  
+  .app-navbar {
+    flex: 1; /* Pomaže da navbar zauzme raspoloživi prostor */
+  }
+  
+  .dropdown-container {
+    position: absolute;
+    right: 10px; /* Odmak od desne granice */
+    top: 50%; /* Vertikalno poravnanje u sredinu */
+    transform: translateY(-50%); /* Vertikalno centriranje u odnosu na sredinu */
+  }
+  
+  .dropdown {
+    position: relative;
+    margin-right: 10px;
+  }
+  
+  .dropdown-menu {
+    min-width: 10rem; /* Širina dropdown menija */
+    margin-top: 0.5rem; /* Razmak između dugmeta i menija */
+  }
+  
+  /* Prilagodite stilove za mobilne uređaje */
+  @media (max-width: 991px) {
+    .navbar-container {
+      flex-direction: column; /* Složi elemente u kolonu na manjim ekranima */
+    }
+  
+    .dropdown-container {
+      position: static; /* Postavlja dropdown meni ispod navbar-a na manjim ekranima */
+      margin-top: rem; /* Razmak između navbar-a i dropdown menija */
+      right: 0; /* Uklanja odmak od desne strane na manjim ekranima */
+      transform: none; /* Uklanja vertikalno pomeranje na manjim ekranima */
+    }
+  }
+
+.ciprip{
+  margin-left: 160px;
+}
+.page-footer-component{
+  margin-top: 40px;
+}
+
+.zaSveFacilityDaCentriras{
+  margin-left: 400px;
+
+}
+
+#totalRatingDecoration {
+  border: 1px solid rgb(232, 228, 228); 
+  padding: 2px; 
+  margin-right: 10px; 
+  border-radius: 5px; 
+  background-color: rgb(242, 12, 12);
+  color: #fff; 
+  
+}
+.sortbutton{
+  margin-left: 1980px;
+}
+.exploreMoreButton{
+  margin-left: 1000px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

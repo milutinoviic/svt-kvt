@@ -1,0 +1,138 @@
+<div class="navbar-container">
+  <app-navbar></app-navbar>
+  <div class="dropdown-container">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Opcije
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" (click)="logout()">Log out</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="userObject">
+  <section class="h-100 gradient-custom-2">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center">
+        <div class="col col-lg-9 col-xl-8">
+          <div class="card">
+            <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
+              <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                  alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
+                  style="width: 150px; z-index: 1">
+                <button type="button" [routerLink]="['/registrationUpdate']" class="btn btn-outline-dark text-body" style="z-index: 1;">
+                  Edit profile
+                </button>
+              </div>
+              <div class="ms-3" style="margin-top: 130px;">
+                <h5>{{userObject.name}} {{userObject.surName}}</h5>
+                <p *ngIf="userObject.city">{{userObject.city}}</p>
+              </div>
+            </div>
+            <div class="p-4 text-black bg-body-tertiary">
+              <div class="d-flex justify-content-end text-center py-1 text-body">
+                <div>
+                  <p class="mb-1 h5">Phone number</p>
+                  <p class="small text-muted mb-0" *ngIf="userObject.phoneNumber">{{userObject.phoneNumber}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-4 text-black">
+             <div *ngIf="isExist"> <button type="button" class="btn btn-dark" (click)="onYourFacility()">Your facility</button></div>
+              <div class="mb-5 text-body">
+                <p class="lead fw-normal mb-1">About</p>
+                <div class="p-4 bg-body-tertiary">
+                  <p class="font-italic mb-1" *ngIf="userObject.address">Address: {{userObject.address}}</p>
+                  <p class="font-italic mb-1" *ngIf="userObject.city">Lives in: {{userObject.city}}</p>
+                  <p class="font-italic mb-1" *ngIf="userObject.birthday">Date of Birth: {{userObject.birthday}}</p>
+                  <p class="font-italic mb-1" *ngIf="userObject.createdAl">Date of Creation: {{userObject.createdAl}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+<div class="review-list">
+  <div class="comment-item" *ngFor="let review of reviewList">
+    <div class="review-header d-flex justify-content-between align-items-center">
+      <span class="average-rating">{{ average(review.rate.staff, review.rate.equipment, review.rate.hygiene, review.rate.space) }}</span>
+      <span class="review-date">{{ review.createdAt | date: 'shortDate' }}</span>
+    </div>
+    
+    <div class="rating-details">
+      <div class="rating-detail">
+        <span class="rating-label">Higijena:</span>
+        <span class="rating-value">{{ review.rate.hygiene }}</span>
+      </div>
+      <div class="rating-detail">
+        <span class="rating-label">Osoblje:</span>
+        <span class="rating-value">{{ review.rate.staff }}</span>
+      </div>
+      <div class="rating-detail">
+        <span class="rating-label">Opremljenost:</span>
+        <span class="rating-value">{{ review.rate.equipment }}</span>
+      </div>
+      <div class="rating-detail">
+        <span class="rating-label">Prostorija:</span>
+        <span class="rating-value">{{ review.rate.space }}</span>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn btn-danger btn-sm" style="width: 3%;" (click)="onClickDelete(review.id)">X</button>
+     </div>
+
+    <!-- Glavni komentar -->
+    <p *ngIf="review.comment" class="comment-text">
+      {{ review.comment.user.name }} {{ review.comment.user.surName }}: {{ review.comment.text }}
+    </p>
+    <div *ngIf="review.comment.replyComment" class="reply-comment">
+      <app-reply-component [comment]="review.comment.replyComment"></app-reply-component>
+    </div>
+
+   
+    
+
+  </div>
+</div>
+
+
+
+<div class="container mt-4  listaVjezbi">
+  <h2>Lista vežbi</h2>
+  <br>
+  <div class="row">
+    <div class="col-md-6" *ngFor="let exercise of exerciseList">
+      <div class="card mb-3">
+        <div class="card-header">
+          <h5>{{ exercise.facilityName }}</h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">Datum i vreme:</h6>
+          <p class="card-text">
+            Od: {{ exercise.from | date: 'short' }}<br>
+            Do: {{ exercise.until | date: 'short' }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+  </section>
+  
+</div>
+
+
+
+

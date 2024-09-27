@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <div class="card shadow-sm border-light" style="max-width: 400px; margin: 0 auto;">
+    <div class="card-header bg-primary text-white">
+      Dodaj Novu Disciplinu
+    </div>
+    <div class="card-body">
+      <form [formGroup]="disciplineForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+          <label for="disciplineName" class="form-label">Ime Discipline</label>
+          <input type="text" class="form-control" id="disciplineName" formControlName="name" placeholder="Unesite ime discipline" required>
+          <div *ngIf="disciplineForm.get('name')?.invalid && (disciplineForm.get('name')?.dirty || disciplineForm.get('name')?.touched)" class="text-danger mt-2">
+            Ime discipline je obavezno.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="disciplineForm.invalid">Dodaj Disciplinu</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+  
+  

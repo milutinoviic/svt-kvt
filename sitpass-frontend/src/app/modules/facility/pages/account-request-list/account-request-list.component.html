@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<br>
+<div class="container mt-4">
+  <div *ngFor="let request of accountRequests" class="card mb-3">
+    <div class="card-body d-flex align-items-center">
+      <div class="me-4 text-center">
+        <p><strong>Email:</strong> {{ request.email }}</p>
+      </div>
+      <div class="me-4 text-center">
+        <p><strong>Address:</strong> {{ request.address }}</p>
+      </div>
+      <div class="me-4 text-center">
+        <p><strong>Status:</strong> {{ request.status }}</p>
+      </div>
+      <div class="ms-auto d-flex align-items-center">
+        <button class="btn btn-success me-2" (click)=onApprove(request)>Odobri</button>
+        
+        <button class="btn btn-danger" (click)="onReject(request)">Odbij</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  

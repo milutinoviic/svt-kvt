@@ -1,0 +1,16 @@
+<p>exercise-create works!</p>
+
+
+<!-- exercise-form.component.html -->
+<div class="container">
+    <h1>Enter Exercise Details</h1>
+    <form [formGroup]="form">
+        <label for="from">Start Date and Time:</label>
+        <input type="datetime-local" id="from" formControlName="startDateTime" required>
+
+        <label for="until">End Date and Time:</label>
+        <input type="datetime-local" id="until" formControlName="endDateTime" readonly>
+
+        <button type="submit" (click)="createExercise()"  [disabled]="form.invalid">Submit</button>
+    </form>
+</div>

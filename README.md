@@ -1,2 +1,3 @@
-# svt-kvt
-Projekat za predmet serverske i klijentske veb tehnologije
+# Projektni zadatak: SVT i KVT
+
+Student: SR 28/2022

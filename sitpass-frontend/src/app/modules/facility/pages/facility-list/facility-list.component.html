@@ -1,0 +1,120 @@
+
+<div class="navbar-container">
+  <app-navbar></app-navbar>
+  <div class="dropdown-container">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        Opcije
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li *ngIf="roleNow ==='ADMIN'"><a class="dropdown-item" (click)="openFacilityModal()" >Dodaj facility</a></li>
+        <li *ngIf="roleNow ==='ADMIN'"><a class="dropdown-item" (click)="openAccountRequests()" >Pregledaj zahtjeve</a></li>
+        <li *ngIf="roleNow ==='ADMIN'"><a class="dropdown-item" (click)="openAddDiscipline()" >Dodaj disicplinu</a></li>
+        <li *ngIf="roleNow ==='ADMIN'"><a class="dropdown-item" [routerLink]="['/neaktivni-facilities']" >Neaktivni facilitys</a></li>
+
+        <li><a class="dropdown-item" (click)="logout()">Log out</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<div  style="background-color: rgba(74, 1, 1, 0.317); width: 100%; height: 100vh;">
+
+
+
+<br>
+  <div class="container mt-4">
+    <form [formGroup]="searchFacilityForm" (ngSubmit)="submitSearch()" class="form-inline">
+      
+      <div class="form-group mb-2 mr-2">
+        <input id="city" formControlName="city" class="form-control" placeholder="Grad" aria-label="Grad">
+      </div>
+  
+      
+      <div class="form-group mb-2 mr-2">
+        <select id="discipline" formControlName="disciplineId"  placeholder="asd" class="form-control" aria-label="Disciplina">
+         
+          <option value="" selected>izaberite disciplinu</option>
+           
+          <option *ngFor="let discipline of disciplines" value="{{discipline.id}}">
+            {{ discipline.name }}
+          </option>
+        </select>
+      </div>
+      
+  
+      
+      <div class="form-group mb-2 mr-2">
+        
+        <input id="ratingMin" type="number" formControlName="fromRate" class="form-control" placeholder="Ocena (min)" aria-label="Ocena (min)">
+      </div>
+  
+     
+      <div class="form-group mb-2 mr-2">
+        
+        <input id="ratingMax" type="number" formControlName="toRate" class="form-control" placeholder="Ocena (max)" aria-label="Ocena (max)">
+      </div>
+  
+      <div class="form-group mb-2 mr-2">
+        <input id="workTimeFrom" type="time" formControlName="fromWorkTime" class="form-control" aria-label="Radno vreme (od)">
+      </div>
+  
+      
+      <div class="form-group mb-2 mr-2">
+        <input id="workTimeTo" type="time" formControlName="toWorkTime" class="form-control" aria-label="Radno vreme (do)">
+      </div>
+  
+      
+      <button type="submit" class="btn btn-primary mb-2">Pretraži</button>
+    </form>
+  </div>
+  
+  <br>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mb-4" *ngFor="let f of facilities">
+        <div class="card h-100">
+          <img src="images/ter2.jpg" alt="Avatar" class="card-img-top">
+          <div class="card-body">
+            <h4 class="card-title">
+              <span id="totalRatingDecoration">{{ f.totalRating | number:'1.1-1' }}</span>
+              <b>{{f.name}}</b>
+            </h4>
+            <p class="card-text">{{f.address}}, {{f.city}}</p>
+          </div>
+          <div class="card-footer">
+            <a [routerLink]="['/facility/', f.id]">Prikaži facility</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+
+
+</div>
+
+<div class="modal" tabindex="-1" [class.show]="isDisciplineOpen" [style.display]="isDisciplineOpen ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Dodaj radni dan</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeisDisciplineOpen()"></button>
+      </div>
+      <div class="modal-body">
+        <app-discipline-create></app-discipline-create>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closeisDisciplineOpen()">Zatvori</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

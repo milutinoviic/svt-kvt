@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card p-4" *ngIf="facility">
+        <h1 class="card-title mb-4">{{ facility.name }}</h1>
+        <div class="d-flex align-items-center mb-4">
+          <div class="rating d-flex align-items-center">
+            <span class="star me-2" style="font-size:220%;color:orange;">&starf;</span>
+            <p class="mb-0"><strong>Ocjena:</strong></p>
+            <div class="rst ms-2 bg-danger text-white rounded p-2">{{ facility.totalRating }}</div>
+          </div>
+          <p class="adressDistance ms-3 mb-0"><strong>{{ facility.address }}, {{ facility.city }}</strong></p>
+        </div>
+        <div class="disciplinesCss mb-3">
+          <div *ngFor="let d of disciplines" class="d-inline-block border rounded p-2 bg-light">
+            <p class="mb-0">{{d.name}}</p>
+          </div>
+        </div>
+        <div class="facility-description border rounded p-3">
+          <h2 class="mb-3">O nama</h2>
+          <p>{{ facility.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

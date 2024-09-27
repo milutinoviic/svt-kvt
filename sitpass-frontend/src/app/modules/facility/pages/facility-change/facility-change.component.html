@@ -1,0 +1,116 @@
+<div class="container mt-5" *ngIf="facilityObject">
+  <!-- Close Button -->
+  <a [routerLink]="['/facility', facilityObject.id]" class="btn btn-secondary btn-sm position-fixed top-0 end-0 m-3">
+    <i class="bi bi-x"></i>
+  </a>
+
+  <!-- Facility Form -->
+  <form #facilityForm="ngForm" (ngSubmit)="updateFacility()" novalidate>
+    <!-- Facility Name and Description -->
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="facilityName">Name</label>
+          <input type="text" class="form-control" id="facilityName" [(ngModel)]="facilityObject.name" name="name" #name="ngModel" required>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+            Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="facilityDescription">Description</label>
+          <textarea class="form-control" id="facilityDescription" rows="3" [(ngModel)]="facilityObject.description" name="description" #description="ngModel" required></textarea>
+          <div *ngIf="description.invalid && (description.dirty || description.touched)" class="text-danger">
+            Description is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="facilityAddress">Address</label>
+          <input type="text" class="form-control" id="facilityAddress" [(ngModel)]="facilityObject.address" name="address" #address="ngModel" required>
+          <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">
+            Address is required.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="facilityCity">City</label>
+          <input type="text" class="form-control" id="facilityCity" [(ngModel)]="facilityObject.city" name="city" #city="ngModel" required>
+          <div *ngIf="city.invalid && (city.dirty || city.touched)" class="text-danger">
+            City is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="facilityTotalRating">Total Rating</label>
+          <input type="number" class="form-control" id="facilityTotalRating" [value]="facilityObject.totalRating" readonly>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="facilityCreatedAt">Created At</label>
+          <input type="text" class="form-control" id="facilityCreatedAt" [value]="facilityObject.createdAt | date:'longDate'" readonly>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary w-100" [disabled]="facilityForm.invalid">Sačuvaj promjene</button>
+      </div>
+    </div>
+
+    
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <h2 class="h3">Work Days</h2>
+        <div class="list-group">
+          <div class="list-group-item" *ngFor="let workDay of facilityObject.workDays">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="mb-1">{{ workDay.day }}</h5>
+              <small class="text-muted">{{ workDay.validFrom | date:'longDate' }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <!-- Discipline Selection -->
+        <div>
+          <label for="discipline" class="form-label">Disciplina:</label>
+          <select id="discipline" class="form-select" (change)="addDiscipline($event)">
+            <option value="" selected>Izaberite disciplinu</option>
+            <option *ngFor="let discipline of disciplines" [value]="discipline.id">
+              {{ discipline.name }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Disciplines List -->
+        <div class="mt-4">
+          <h2 class="h3">Disciplines</h2>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let discipline of facilityObject.disciplines">
+              {{ discipline.name }}
+              <button type="button" class="btn btn-danger btn-sm" (click)="removeDiscipline(discipline)">
+                <i class="bi bi-x"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </form>
+</div>

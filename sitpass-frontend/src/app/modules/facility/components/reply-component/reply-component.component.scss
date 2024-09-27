@@ -1,0 +1,24 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .reply-comment {
+    margin-left: 20px; /* Uvlačenje za svaki nivo odgovora */
+    font-size: 14px;
+    color: #6c757d; /* Svetlija boja za odgovore */
+  }
+  
+  .reply-comment p {
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  
+  

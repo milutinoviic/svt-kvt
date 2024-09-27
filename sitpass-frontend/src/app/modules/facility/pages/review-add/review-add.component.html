@@ -1,0 +1,34 @@
+<p>Review works!</p>
+<div class="review-container">
+    <h2>Ostavite utisak</h2>
+    
+    <form [formGroup]="form">
+      <div class="exercise-count">
+        <label for="exerciseCount">Broj odlazaka:</label>
+        <input type="number" id="exerciseCount" formControlName="exerciseCount" readonly />
+    </div>
+  
+      <div class="rating-section">
+        <h3>Ocene (1-10)</h3>
+        
+        <label for="equipment">Opremljenost:</label>
+        <input type="number" id="equipment" formControlName="equipment" min="1" max="10" required />
+        
+        <label for="staff">Osoblje:</label>
+        <input type="number" id="staff" formControlName="staff" min="1" max="10" required />
+        
+        <label for="hygiene">Higijena:</label>
+        <input type="number" id="hygiene" formControlName="hygiene" min="1" max="10" required />
+        
+        <label for="space">Prostorija:</label>
+        <input type="number" id="space" formControlName="space" min="1" max="10" required />
+      </div>
+  
+      <div class="comment-section">
+        <label for="comment">Komentar:</label>
+        <textarea id="comment" formControlName="comment"></textarea>
+      </div>
+  
+      <button [disabled]="!form.valid" type="submit" (click)="createReview()">Pošalji recenziju</button>
+    </form>
+</div>

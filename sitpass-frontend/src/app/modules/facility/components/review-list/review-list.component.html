@@ -1,0 +1,85 @@
+<br>
+<div class="review-list">
+  <div class="comment-item" *ngFor="let r of reviews">
+    <div class="review-header d-flex justify-content-between align-items-center">
+      <span class="average-rating">{{ average(r.rate.staff, r.rate.equipment, r.rate.hygiene, r.rate.space) }}</span>
+      <span class="review-date">{{ r.createdAt | date:'shortDate' }}</span>
+    </div>
+    
+    <div class="rating-details">
+      <div class="rating-detail">
+        <span class="rating-label">Higijena:</span>
+        <span class="rating-value">{{ r.rate.hygiene }}</span>
+      </div>
+      <div class="rating-detail">
+        <span class="rating-label">Osoblje:</span>
+        <span class="rating-value">{{ r.rate.staff }}</span>
+      </div>
+      <div class="rating-detail">
+        <span class="rating-label">Opremljenost:</span>
+        <span class="rating-value">{{ r.rate.equipment }}</span>
+      </div>
+      <div class="rating-detail">
+        <span class="rating-label">Prostorija:</span>
+        <span class="rating-value">{{ r.rate.space }}</span>
+      </div>
+     <div *ngIf="roleNow ==='ADMIN' || isExist">
+      <button class="btn btn-danger btn-sm" style="width: 3%;" (click)="onClickDelete(r.id)">X</button>
+      <button class="btn btn-warning btn-sm" style="margin-left: 5px; width: 3%;" (click)="onClickHide(r.id)">H</button>
+     </div>
+
+    </div>
+
+    <!-- Glavni komentar -->
+    <p *ngIf="r.comment" class="comment-text">{{r.comment.user.name}} {{r.comment.user.surName}} : {{ r.comment.text }}</p>
+
+    <!-- Ogovori na komentar -->
+    <div *ngIf="r.comment.replyComment" class="reply-comment">
+      <app-reply-component [comment]="r.comment.replyComment"></app-reply-component>
+    </div>
+
+    <div *ngIf="isExist">
+
+      <div *ngIf="!r.comment.replyComment">
+        <button class="btn btn-primary" (click)="openReplyModal(r.comment.id)">
+          Odgovori
+        </button>
+      </div>
+
+
+    </div>
+    
+    
+    <hr>
+  </div>
+</div>
+
+
+
+<!-- Modal sa formom za unos teksta -->
+<div *ngIf="isModalOpen" class="modal-overlay">
+  <div class="card shadow-sm" style="max-width: 500px; margin: 20px auto; border-radius: 15px;">
+    <div class="card-header bg-primary text-white" style="border-radius: 15px 15px 0 0;">
+      <h5 class="card-title mb-0">Unesite Vaš tekst za komentar ID {{selectedCommentId}}</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Molimo vas da unesete svoj komentar u polje ispod.</p>
+      <form [formGroup]="form">
+        <div class="mb-3">
+          <label for="inputText" class="form-label">Vaš tekst</label>
+          <input type="text" class="form-control" id="inputText" formControlName="commentText" placeholder="Unesite tekst ovde">
+          <div *ngIf="form.get('commentText')?.invalid && (form.get('commentText')?.touched || form.get('commentText')?.dirty)" class="text-danger">
+            Mora imati barem 3 karaktera.
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer text-end" style="border-radius: 0 0 15px 15px;">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="sendComment()">Pošalji</button>
+      <button type="button" class="btn btn-secondary" (click)="closeReplyModal()">Zatvori</button>
+    </div>
+  </div>
+</div>
+
+
+
